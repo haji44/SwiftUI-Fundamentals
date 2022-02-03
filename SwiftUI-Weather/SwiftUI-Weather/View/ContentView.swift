@@ -12,6 +12,9 @@ struct ContentView: View {
     // avoid destroy this value
     // to keep the variable
     @State private var isNight = false // flag change UI
+    @State var iconName = ""
+    @State var number = 0
+    @State var imageName = ""
     
     var body: some View {
         ZStack {
@@ -20,21 +23,42 @@ struct ContentView: View {
             VStack {
                 CityTextView(cityName: "Cupertiono, CA")
                 
-                MainWeatherStateView(temperature: 40, imageName: isNight ? "moon.stars.fill" : "cloud.sun.fill")
+                MainWeatherStateView(temperature: 40, imageName: imageName)
                 
-                .padding(.bottom, 40)
-                HStack(spacing: 20) {
-                    WeatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 74)
-                    WeatherDayView(dayOfWeek: "WED", imageName: "cloud.sun.fill", temperature: 74)
-                    WeatherDayView(dayOfWeek: "THU", imageName: "cloud.sun.fill", temperature: 74)
-                    WeatherDayView(dayOfWeek: "FRI", imageName: "cloud.sun.fill", temperature: 74)
-                    WeatherDayView(dayOfWeek: "SAT", imageName: "cloud.sun.fill", temperature: 74)
-                }
+//                .padding(.bottom, 40)
+//                HStack(spacing: 20) {
+//                    WeatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 74)
+//                    WeatherDayView(dayOfWeek: "WED", imageName: "cloud.sun.fill", temperature: 74)
+//                    WeatherDayView(dayOfWeek: "THU", imageName: "cloud.sun.fill", temperature: 74)
+//                    WeatherDayView(dayOfWeek: "FRI", imageName: "cloud.sun.fill", temperature: 74)
+//                    WeatherDayView(dayOfWeek: "SAT", imageName: "cloud.sun.fill", temperature: 74)
+//                    Image(iconName)
+//                }
                 Spacer()
                 Button {
                     isNight.toggle()
+                    if number < 7 {
+                        number += 1
+                    } else {
+                        number = 0
+                    }
+
                     // MARK: set aciton
-                    print("Tapped")
+                    // TODO: change the code
+                    Task {
+                        do {
+                            let weather = try await NetWorkManager.shared.getWeatherData()
+                            let code = weather.data[0].weather.code / 100
+                            
+                            imageName = NetWorkManager.getSFSymbolString(in: code)
+                            
+                        } catch {
+                            if let error = error as? WeatherError {
+                                print(error.rawValue)
+                            }
+                        }
+                    }
+                    
                 } label: {
                     // MARK: outlook
                     Text("Change Day Time")
