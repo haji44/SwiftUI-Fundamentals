@@ -22,7 +22,9 @@ struct ContentView: View {
             
             VStack {
                 CityTextView(cityName: cityName)
-//                updateData()
+
+                // TODO: excute creating WeatherMainView method
+                // createWeatherMainView()
                 MainWeatherStateView(temperature: 40, imageName: imageName)
                 
                 .padding(.bottom, 40)
@@ -108,7 +110,7 @@ struct CityTextView: View {
 
 struct MainWeatherStateView: View {
     
-    var temperature: Int
+    var temperature: Double
     var imageName: String
     
     var body: some View {
@@ -128,12 +130,14 @@ struct MainWeatherStateView: View {
 
 
 extension ContentView {
-    func updateData() {
+    func createWeatherMainView() {
         Task {
             do {
                 let weather = try await NetWorkManager.shared.getWeatherData(by: cityName)
-                let code = weather.data[0].weather.code / 100
-                imageName = SFSymbol.getSFSymbolString(flag: isNight, in: code)                
+                let datum = weather.data[0]
+                let code = datum.weather.code / 100
+                
+                MainWeatherStateView(temperature: datum.temp, imageName: SFSymbol.getSFSymbolString(flag: isNight, in: code))
             } catch {
                 if let error = error as? WeatherError {
                     print(error.rawValue)
@@ -142,7 +146,7 @@ extension ContentView {
         }
     }
     
-    func createView() {
+    func createWeatherDayView() {
         Task {
             do {
                 let weather = try await NetWorkManager.shared.getWeatherData(by: cityName)
