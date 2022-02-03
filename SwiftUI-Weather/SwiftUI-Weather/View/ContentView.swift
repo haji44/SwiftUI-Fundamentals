@@ -11,54 +11,35 @@ struct ContentView: View {
     
     // avoid destroy this value
     // to keep the variable
-    @State private var isNight = false // flag change UI
-    @State var iconName = ""
-    @State var number = 0
-    @State var imageName = ""
+    @State private var isNight  = false // flag change UI
+    @State var iconName         = ""
+    @State var number           = 0
+    @State var imageName        = ""
+    @State var cityName         = "Tokyo"
     
     var body: some View {
         ZStack {
             BackGroundView(isNaight: $isNight) // $ indicate that the isNight is the same to child view's property
             
             VStack {
-                CityTextView(cityName: "Cupertiono, CA")
-                
+                CityTextView(cityName: cityName)
+//                updateData()
                 MainWeatherStateView(temperature: 40, imageName: imageName)
                 
-//                .padding(.bottom, 40)
-//                HStack(spacing: 20) {
-//                    WeatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 74)
-//                    WeatherDayView(dayOfWeek: "WED", imageName: "cloud.sun.fill", temperature: 74)
-//                    WeatherDayView(dayOfWeek: "THU", imageName: "cloud.sun.fill", temperature: 74)
-//                    WeatherDayView(dayOfWeek: "FRI", imageName: "cloud.sun.fill", temperature: 74)
-//                    WeatherDayView(dayOfWeek: "SAT", imageName: "cloud.sun.fill", temperature: 74)
-//                    Image(iconName)
-//                }
+                .padding(.bottom, 40)
+                HStack(spacing: 20) {
+                    // TODO: excute create view
+//                    createView()
+                    WeatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 74)
+                    WeatherDayView(dayOfWeek: "WED", imageName: "cloud.sun.fill", temperature: 74)
+                    WeatherDayView(dayOfWeek: "THU", imageName: "cloud.sun.fill", temperature: 74)
+                    WeatherDayView(dayOfWeek: "FRI", imageName: "cloud.sun.fill", temperature: 74)
+                    WeatherDayView(dayOfWeek: "SAT", imageName: "cloud.sun.fill", temperature: 74)
+                }
                 Spacer()
                 Button {
                     isNight.toggle()
-                    if number < 7 {
-                        number += 1
-                    } else {
-                        number = 0
-                    }
-
-                    // MARK: set aciton
-                    // TODO: change the code
-                    Task {
-                        do {
-                            let weather = try await NetWorkManager.shared.getWeatherData()
-                            let code = weather.data[0].weather.code / 100
-                            
-                            imageName = NetWorkManager.getSFSymbolString(in: code)
-                            
-                        } catch {
-                            if let error = error as? WeatherError {
-                                print(error.rawValue)
-                            }
-                        }
-                    }
-                    
+                    updateData()
                 } label: {
                     // MARK: outlook
                     Text("Change Day Time")
@@ -83,17 +64,17 @@ struct WeatherDayView: View {
     
     var dayOfWeek: String
     var imageName: String
-    var temperature: Int
+    var temperature: Double
     
     var body: some View {
         VStack {
-            Text("TUE")
-            Image(systemName: "cloud.sun.fill")
+            Text(dayOfWeek)
+            Image(systemName: imageName)
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
-            Text("76°")
+            Text("\(temperature)")
                 .font(.system(size: 28, weight: .medium))
                 .foregroundColor(.white)
         }
@@ -143,5 +124,40 @@ struct MainWeatherStateView: View {
                 .font(.system(size: 70, weight: .medium))
                 .foregroundColor(.white)
         }.padding(40)
+    }
+}
+
+
+extension ContentView {
+    func updateData() {
+        Task {
+            do {
+                let weather = try await NetWorkManager.shared.getWeatherData(by: cityName)
+                let code = weather.data[0].weather.code / 100
+                imageName = SFSymbol.getSFSymbolString(flag: isNight, in: code)                
+            } catch {
+                if let error = error as? WeatherError {
+                    print(error.rawValue)
+                }
+            }
+        }
+    }
+    
+    func createView() {
+        Task {
+            do {
+                let weather = try await NetWorkManager.shared.getWeatherData(by: cityName)
+                let data = weather.data[1...5]
+                
+                for datum in data {
+                    let code = datum.weather.code / 100
+                    WeatherDayView(dayOfWeek: datum.datetime, imageName: SFSymbol.getSFSymbolString(flag: isNight, in: code), temperature: datum.temp)
+                }
+            } catch {
+                if let error = error as? WeatherError {
+                    print(error.rawValue)
+                }
+            }
+        }
     }
 }

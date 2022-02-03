@@ -9,7 +9,6 @@ import Foundation
 
 // MARK: Model
 struct WeatherData: Codable {
-
     // MARK: Property
     var data: [Datum]
 }

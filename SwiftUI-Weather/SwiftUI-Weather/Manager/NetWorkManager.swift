@@ -7,20 +7,21 @@
 
 import SwiftUI
 
-struct NetWorkManager {
+class NetWorkManager {
     
     // MARK: Property
     static let shared   = NetWorkManager()
-    let baseUrl         = "https://api.weatherbit.io/v2.0/forecast/daily?city="
+    let baseUrl         = "https://api.weatherbit.io/v2.0/forecast/daily?key=ff3eda142949492cbeca9379e032683c&days=6&city="
     let decoder         = JSONDecoder()
-        
+
     
     // MARK: Network call
-    func getWeatherData() async throws -> WeatherData {
+    func getWeatherData(by cityName: String) async throws -> WeatherData {
         // TODO: connect api
-        let endopoint = "https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh&country=US&key=ff3eda142949492cbeca9379e032683c"
-
-        guard let url = URL(string: endopoint) else {
+        // let endopint = "https://api.weatherbit.io/v2.0/forecast/daily?key=ff3eda142949492cbeca9379e032683c&city=Tokyo&country=JP"
+        let endpoint = baseUrl + cityName
+        
+        guard let url = URL(string: endpoint) else {
             throw WeatherError.invalidCityName
         }
 
@@ -37,26 +38,4 @@ struct NetWorkManager {
             throw WeatherError.invalidData
         }
     }
-    
-    static func getSFSymbolString(in code: Int) -> String {
-        switch code {
-        case 2:
-            return "cloud.bolt"
-        case 3:
-            return "cloud.heavyrain.fill"
-        case 5:
-            return "cloud.moon.bolt.fill"
-        case 6:
-            return "cloud.snow.fill"
-        case 7:
-            return "smoke.fill"
-        case 8:
-            return "sun.min"
-        case 9:
-            return "aqi.low"
-        default:
-            fatalError("This case doesn't exist")
-        }
-    }
-
 }
