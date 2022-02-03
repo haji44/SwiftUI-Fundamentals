@@ -12,7 +12,6 @@ struct ContentView: View {
     // avoid destroy this value
     // to keep the variable
     @State private var isNight  = false // flag change UI
-    @State var iconName         = ""
     @State var number           = 0
     @State var imageName        = ""
     @State var cityName         = "Tokyo"
@@ -29,7 +28,8 @@ struct ContentView: View {
                 .padding(.bottom, 40)
                 HStack(spacing: 20) {
                     // TODO: excute create view
-//                    createView()
+                    // createView() <- I want to excute this method
+                    
                     WeatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 74)
                     WeatherDayView(dayOfWeek: "WED", imageName: "cloud.sun.fill", temperature: 74)
                     WeatherDayView(dayOfWeek: "THU", imageName: "cloud.sun.fill", temperature: 74)
@@ -39,7 +39,6 @@ struct ContentView: View {
                 Spacer()
                 Button {
                     isNight.toggle()
-                    updateData()
                 } label: {
                     // MARK: outlook
                     Text("Change Day Time")
@@ -151,7 +150,7 @@ extension ContentView {
                 
                 for datum in data {
                     let code = datum.weather.code / 100
-                    WeatherDayView(dayOfWeek: datum.datetime, imageName: SFSymbol.getSFSymbolString(flag: isNight, in: code), temperature: datum.temp)
+                    WeatherDayView(dayOfWeek: datum.datetime.toDaysOfWeek(), imageName: SFSymbol.getSFSymbolString(flag: isNight, in: code), temperature: datum.temp)
                 }
             } catch {
                 if let error = error as? WeatherError {

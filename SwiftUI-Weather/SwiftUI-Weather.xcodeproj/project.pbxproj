@@ -16,6 +16,7 @@
 		204FF68227AAD02F00DF680A /* WeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FF68127AAD02F00DF680A /* WeatherError.swift */; };
 		205C645527AC42B7004AFF95 /* SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205C645427AC42B7004AFF95 /* SFSymbol.swift */; };
 		205C645827AC4C0B004AFF95 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205C645727AC4C0B004AFF95 /* String+Ext.swift */; };
+		205C645A27AC4FB5004AFF95 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205C645927AC4FB5004AFF95 /* Date+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		204FF68127AAD02F00DF680A /* WeatherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherError.swift; sourceTree = "<group>"; };
 		205C645427AC42B7004AFF95 /* SFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbol.swift; sourceTree = "<group>"; };
 		205C645727AC4C0B004AFF95 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		205C645927AC4FB5004AFF95 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				205C645727AC4C0B004AFF95 /* String+Ext.swift */,
+				205C645927AC4FB5004AFF95 /* Date+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				204FF67F27AAC57B00DF680A /* NetWorkManager.swift in Sources */,
 				205C645827AC4C0B004AFF95 /* String+Ext.swift in Sources */,
 				204FF66E27A6CAAB00DF680A /* ContentView.swift in Sources */,
+				205C645A27AC4FB5004AFF95 /* Date+Ext.swift in Sources */,
 				205C645527AC42B7004AFF95 /* SFSymbol.swift in Sources */,
 				204FF67D27AAC3D800DF680A /* WeatherData.swift in Sources */,
 				204FF68227AAD02F00DF680A /* WeatherError.swift in Sources */,
