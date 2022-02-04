@@ -13,7 +13,6 @@ struct ContentView: View {
     // to keep the variable
     @State private var isNight  = false // flag change UI
     @State var number           = 0
-    @State var imageName        = ""
     @State var cityName         = "Tokyo"
     
     var body: some View {
@@ -25,7 +24,7 @@ struct ContentView: View {
 
                 // TODO: excute creating WeatherMainView method
                 // createWeatherMainView()
-                MainWeatherStateView(temperature: 40, imageName: imageName)
+                MainWeatherStateView(temperature: 40, imageName:  "cloud.sun.fill")
                 
                 .padding(.bottom, 40)
                 HStack(spacing: 20) {
@@ -105,7 +104,6 @@ struct CityTextView: View {
             .foregroundColor(.white)
             .padding()
     }
-    
 }
 
 struct MainWeatherStateView: View {
