@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3C667B21-4DE9-4437-A0B3-D94A7CE890DE"
+            uuid = "61EF922B-09DE-489D-BE12-0F5E4ACE4F9D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftUI-Weather/Manager/NetWorkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "getWeatherData()"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "getWeatherData(by:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
