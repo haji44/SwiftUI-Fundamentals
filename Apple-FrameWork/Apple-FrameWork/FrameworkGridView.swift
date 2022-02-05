@@ -32,6 +32,7 @@ struct FrameworkGridView: View {
 struct FrameworkGridView_Previews: PreviewProvider {
     static var previews: some View {
         FrameworkGridView()
+            .preferredColorScheme(.dark)
             
     }
 }
@@ -53,5 +54,6 @@ struct FrameworkTitleView: View {
                 .scaledToFit() // change font size based on the screen
                 .minimumScaleFactor(0.6) // this is indicater of minimum scaleb
         }
+        .padding()
     }
 }
