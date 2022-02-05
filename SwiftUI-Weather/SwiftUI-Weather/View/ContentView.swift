@@ -17,6 +17,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
+            // this view will be affected by changing property
+            // so SwiftUI will be updated UI
             BackGroundView(isNaight: $isNight) // $ indicate that the isNight is the same to child view's property
             
             VStack {
@@ -70,7 +72,7 @@ struct WeatherDayView: View {
         VStack {
             Text(dayOfWeek)
             Image(systemName: imageName)
-                .renderingMode(.original)
+                .symbolRenderingMode(.multicolor)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
@@ -91,7 +93,7 @@ struct BackGroundView: View {
         LinearGradient(gradient: Gradient(colors: [isNaight ? .black :.blue, isNaight ? .gray: Color("lightBlue")]),
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea()
     }
 }
 
