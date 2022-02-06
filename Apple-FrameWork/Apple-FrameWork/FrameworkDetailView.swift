@@ -10,6 +10,7 @@ import SwiftUI
 struct FrameworkDetailView: View {
     
     var frameWork: Framework
+    @Binding var isShowingDetailView: Bool
     
     var body: some View {
         VStack {
@@ -18,7 +19,7 @@ struct FrameworkDetailView: View {
             HStack {
                 Spacer()
                 Button {
-                    
+                    isShowingDetailView = false
                 } label: {
                     // color should be able to visible for both darkmode and light mode
                     // in that case label of UIkit is appropriate
@@ -49,6 +50,6 @@ struct FrameworkDetailView: View {
 
 struct FrameworkDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameworkDetailView(frameWork: MockData.sampleFramework)
+        FrameworkDetailView(frameWork: MockData.sampleFramework, isShowingDetailView: .constant(false))
     }
 }
