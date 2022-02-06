@@ -1,0 +1,34 @@
+//
+//  FrameworkIcon.swift
+//  Apple-FrameWork
+//
+//  Created by kitano hajime on 2022/02/06.
+//
+
+import SwiftUI
+
+struct FrameworkIcon: View {
+    // to concrete the property type bring a lot of benefits
+    // we can handle the name and image name simultaneously
+    let framework: Framework
+    
+    var body: some View {
+        HStack {
+            Image(framework.imageName)
+                .resizable()
+                .frame(width: 70, height: 70)
+            Text(framework.name)
+                .font(.title2)
+                .fontWeight(.semibold)
+                .scaledToFit() // change font size based on the screen
+                .minimumScaleFactor(0.6) // this is indicater of minimum scaleb
+                .padding()
+        }
+    }
+}
+
+struct FrameworkIcon_Previews: PreviewProvider {
+    static var previews: some View {
+        FrameworkIcon(framework: MockData.sampleFramework)
+    }
+}
