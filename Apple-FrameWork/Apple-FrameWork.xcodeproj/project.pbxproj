@@ -12,6 +12,7 @@
 		2029D3EC27AE2D050079141D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2029D3EB27AE2D050079141D /* Preview Assets.xcassets */; };
 		2029D3F427AE2D540079141D /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2029D3F327AE2D540079141D /* Framework.swift */; };
 		2029D3F627AE2F050079141D /* FrameworkGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2029D3F527AE2F050079141D /* FrameworkGridView.swift */; };
+		20C2059727AF714A00380D66 /* AFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C2059627AF714A00380D66 /* AFButton.swift */; };
 		20EE39C827AE736A004A6022 /* FrameworkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE39C727AE736A004A6022 /* FrameworkDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +23,7 @@
 		2029D3EB27AE2D050079141D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2029D3F327AE2D540079141D /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
 		2029D3F527AE2F050079141D /* FrameworkGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGridView.swift; sourceTree = "<group>"; };
+		20C2059627AF714A00380D66 /* AFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFButton.swift; sourceTree = "<group>"; };
 		20EE39C727AE736A004A6022 /* FrameworkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 				2029D3E827AE2D050079141D /* Assets.xcassets */,
 				2029D3EA27AE2D050079141D /* Preview Content */,
 				20EE39C727AE736A004A6022 /* FrameworkDetailView.swift */,
+				20C2059627AF714A00380D66 /* AFButton.swift */,
 			);
 			path = "Apple-FrameWork";
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				20EE39C827AE736A004A6022 /* FrameworkDetailView.swift in Sources */,
 				2029D3F627AE2F050079141D /* FrameworkGridView.swift in Sources */,
 				2029D3F427AE2D540079141D /* Framework.swift in Sources */,
+				20C2059727AF714A00380D66 /* AFButton.swift in Sources */,
 				2029D3E527AE2D030079141D /* Apple_FrameWorkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
