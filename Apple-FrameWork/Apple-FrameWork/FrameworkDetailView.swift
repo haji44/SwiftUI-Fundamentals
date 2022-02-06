@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FrameworkDetailView: View {
     
-    var frameWork: Framework
+    var framework: Framework
     @Binding var isShowingDetailView: Bool
     @State private var isShowingSafariView: Bool = false
     
@@ -32,8 +32,8 @@ struct FrameworkDetailView: View {
             }
             Spacer()
             
-            FrameworkTitleView(framework: frameWork)
-            Text(frameWork.description)
+            FrameworkTitleView(framework: framework)
+            Text(framework.description)
                 .font(.body)
                 .padding()
 
@@ -41,20 +41,27 @@ struct FrameworkDetailView: View {
             
             Button {
                 isShowingSafariView = true
-                print("tapped!")
+                print("tapped")
             } label: {
                 AFButton(title: "Learn More")
             }
+
+            
+//            Button {
+//                isShowingSafariView = true
+//                print("tapped!")
+//            } label: {
+//                AFButton(title: "Learn More")
+//            }
         }
-        .fullScreenCover(isPresented: $isShowingSafariView, content: {
-            // treat error url pattern by default setting
-            SafariView(url: URL(string: frameWork.urlString) ?? URL(string: "www.apple.com")!)
+        .sheet(isPresented: $isShowingSafariView, content: {
+            SafariView(url: URL(string: framework.urlString) ?? URL(string: "www.apple.com")!)
         })
     }
 }
 
 struct FrameworkDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameworkDetailView(frameWork: MockData.sampleFramework, isShowingDetailView: .constant(false))
+        FrameworkDetailView(framework: MockData.sampleFramework, isShowingDetailView: .constant(false))
     }
 }
