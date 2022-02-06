@@ -13,8 +13,6 @@ struct AFButton: View {
     var title: String
     
     var body: some View {
-        Button {
-        } label: {
             Text(title)
                 .font(.title2)
                 .fontWeight(.semibold)
@@ -22,7 +20,6 @@ struct AFButton: View {
                 .background(Color.red)
                 .foregroundColor(.white)
                 .cornerRadius(10)
-        }
     }
 }
 

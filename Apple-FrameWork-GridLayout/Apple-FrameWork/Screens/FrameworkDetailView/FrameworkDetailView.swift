@@ -26,10 +26,11 @@ struct FrameworkDetailView: View {
 
             Spacer()
             
-            Button {
+            Button(action: {
+                // What to perform
                 isShowingSafariView = true
-                print("tapped")
-            } label: {
+            }) {
+                // How the button looks like
                 AFButton(title: "Learn More")
             }
         }
