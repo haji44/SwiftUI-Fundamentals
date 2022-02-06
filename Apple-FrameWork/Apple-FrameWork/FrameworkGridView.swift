@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct FrameworkGridView: View {
+    
+    
+    @StateObject var viewModel = FrameworkGridViewModel()
+    
     // Grid is lazy to minimze the amount of loading data
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible()),
@@ -21,10 +25,19 @@ struct FrameworkGridView: View {
                     // iterating to crate FrameWorkItem
                     ForEach(MockData.frameworks) { framework in
                         FrameworkTitleView(framework: framework)
+                            .onTapGesture {
+                                // update framework when the user select object
+                                viewModel.selectedFramework = framework
+                            }
                     }
                 }
             }
             .navigationTitle("🍎 Frameworks")
+            // implement to push detail view and set default value or empty state
+            // this also responsible for dismiss sub view
+            .sheet(isPresented: $viewModel.isShowingDetailView) {
+                FrameworkDetailView(frameWork: viewModel.selectedFramework ?? MockData.sampleFramework, isShowingDetailView: $viewModel.isShowingDetailView)
+            }
         }
     }
 }
