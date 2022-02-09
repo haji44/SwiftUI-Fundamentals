@@ -8,9 +8,14 @@
 import Foundation
 import SwiftUI
 
-enum APError: Error {
+enum APServerError: Error {
     case invalidURL
     case ivalidResponse
     case invalidData
     case unableToComplete
+}
+
+enum APInputError: Error {
+    case invalidInput
+    case invalidEmail
 }

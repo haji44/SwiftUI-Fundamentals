@@ -22,19 +22,35 @@ struct AlertItem: Identifiable {
 // so we should make sure tha every error type identically
 // in this project, we should make sure the APError
 struct AlertContext {
-    static let invalidData      = AlertItem(title: Text("Server Error"),
-                                       message: Text("The data received from the server was invalid. Please contac support"),
+    static let invalidData          = AlertItem(title: Text("Server Error"),
+                                           message: Text("The data received from the server was invalid. Please contac support"),
+                                           dismissButton: .default(Text("OK")))
+        
+    static let invalidResponse      = AlertItem(title: Text("Server Error"),
+                                           message: Text("Invalid response from the server. Please try again later or contact support"),
+                                           dismissButton: .default(Text("OK")))
+        
+    static let invalidURL           = AlertItem(title: Text("Server Error"),
+                                           message: Text("There was an issue connecting to the server. If this persists, please contact support"),
+                                           dismissButton: .default(Text("OK")))
+        
+    static let invalidComplete      = AlertItem(title: Text("Server Error"),
+                                           message: Text("Unable to complete your request at this time. Please check your internet connection"),
+                                           dismissButton: .default(Text("OK")))
+        
+    static let invalidInput         = AlertItem(title: Text("Opps Text is Empty"),
+                                           message: Text("Make sure to input "),
+                                           dismissButton: .default(Text("OK")))
+        
+    static let invalidEmail         = AlertItem(title: Text("Email something went wrong"),
+                                       message: Text("Cechk your email is correct"),
                                        dismissButton: .default(Text("OK")))
     
-    static let invalidResponse  = AlertItem(title: Text("Server Error"),
-                                       message: Text("Invalid response from the server. Please try again later or contact support"),
+    static let sucessSaveUserData   = AlertItem(title: Text("User data save"),
+                                       message: Text("Your setting is updated"),
                                        dismissButton: .default(Text("OK")))
     
-    static let invalidURL       = AlertItem(title: Text("Server Error"),
-                                       message: Text("There was an issue connecting to the server. If this persists, please contact support"),
-                                       dismissButton: .default(Text("OK")))
-    
-    static let invalidComplete  = AlertItem(title: Text("Server Error"),
-                                       message: Text("Unable to complete your request at this time. Please check your internet connection"),
+    static let failSaveUserData     = AlertItem(title: Text("Something went wrong"),
+                                       message: Text("Unable to update your setting."),
                                        dismissButton: .default(Text("OK")))
 }

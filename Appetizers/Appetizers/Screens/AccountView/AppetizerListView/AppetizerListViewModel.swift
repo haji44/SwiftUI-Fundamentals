@@ -14,7 +14,7 @@ final class AppetizerListViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var isShowingDetail = false
     @Published var selectedAppetizer: Appetizer?
-
+    
     func getAppetizers() {
         isLoading = true // when method called, start to show the loading view
         NetworkManager.shared.getAppetizers { [self] result in

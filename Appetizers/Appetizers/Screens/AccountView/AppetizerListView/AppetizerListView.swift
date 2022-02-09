@@ -12,6 +12,7 @@ struct AppetizerListView: View {
     // get the data via acessing api
     // to observe the change value, declare State
     @StateObject var viewModel = AppetizerListViewModel()
+    
 
     var body: some View {
         // in order to set loading on the top of view
@@ -46,6 +47,8 @@ struct AppetizerListView: View {
                 AppetizerDetailView(appetizer: viewModel.selectedAppetizer!,
                                     isShowingDetail: $viewModel.isShowingDetail)
             }
+            
+            
         }
         // MARK: Alert
         // so that rimit showing alert in existing the alert

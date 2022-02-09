@@ -10,10 +10,13 @@ import SwiftUI
 // main indicate entrypoint of application
 @main
 struct AppetizersApp: App { // App protcol allows the app to show multiple screen
+    
+    var order = Order() // this property used in multiplu view so declared as EnvironmentObject
+    
     var body: some Scene {
         WindowGroup {
             // this view used as initial view of entire app
-            AppetizerTabView()
+            AppetizerTabView().environmentObject(order)
         }
     }
 }
