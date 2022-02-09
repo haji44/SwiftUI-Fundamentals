@@ -8,14 +8,14 @@
 import Foundation
 
 struct Appetizer: Decodable, Identifiable {
-    var id: Int
-    let name: String
-    let description: String
-    let price: Double
-    let imageURL: String
-    let calories: Int
-    let protein: Int
-    let carbs: Int
+    var id          : Int
+    let name        : String
+    let description : String
+    let price       : Double
+    let imageURL    : String
+    let calories    : Int
+    let protein     : Int
+    let carbs       : Int
 }
 
 struct AppetizerResponse: Decodable {
