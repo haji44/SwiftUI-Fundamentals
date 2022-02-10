@@ -16,43 +16,28 @@ final class NetworkManager {
     static let appetizerURL = baseURL + "appetizers"
     
     private let cache = NSCache<NSString, UIImage>()
+    let decoder = JSONDecoder()
+    let encoder = JSONEncoder()
     
     private init() {}
     
     
-    func getAppetizers(completed: @escaping (Result<[Appetizer], APServerError>) -> Void) {
+    func getAppetizers() async throws -> [Appetizer] {
         guard let url = URL(string: NetworkManager.appetizerURL) else {
-            completed(.failure(.invalidURL))
-            return
+            throw APServerError.invalidURL
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.ivalidResponse))
-                return
-            }
-            
-            
-            guard let data = data else {
-                completed(.failure(.invalidData))
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                let appetizers = try decoder.decode(AppetizerResponse.self, from: data)
-                completed(.success(appetizers.request))
-            } catch {
-                completed(.failure(.invalidData))
-            }
-        }        
-        task.resume()
+        let (data, response) = try  await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw APServerError.ivalidResponse
+        }
+        
+        do {
+            return try decoder.decode(AppetizerResponse.self, from: data).request
+        } catch {
+            throw APServerError.invalidData
+        }
     }
     
     // if image doesn't exist, we will use the place holder image

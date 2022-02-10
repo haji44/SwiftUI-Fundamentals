@@ -97,8 +97,8 @@
 		207F1B3B27B1789200ED10B1 /* AccountView */ = {
 			isa = PBXGroup;
 			children = (
-				207F1B4E27B40BC700ED10B1 /* AccountViewModel.swift */,
 				208A7D9C27B02110005E8B84 /* AccountView.swift */,
+				207F1B4E27B40BC700ED10B1 /* AccountViewModel.swift */,
 				207F1B3A27B1788900ED10B1 /* AppetizerListView */,
 			);
 			path = AccountView;
