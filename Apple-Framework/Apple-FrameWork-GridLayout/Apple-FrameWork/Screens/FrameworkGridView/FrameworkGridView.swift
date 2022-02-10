@@ -32,7 +32,7 @@ struct FrameworkGridView: View {
             // implement to push detail view and set default value or empty state
             // this also responsible for dismiss sub view
             .sheet(isPresented: $viewModel.isShowingDetailView) {
-                FrameworkDetailView(framework: viewModel.selectedFramework ?? MockData.sampleFramework, isShowingDetailView: $viewModel.isShowingDetailView)
+                FrameworkDetailView(viewModel: FrameworkDetailViewModel(framework: viewModel.selectedFramework!, isShowingDetailView: $viewModel.isShowingDetailView))
             }
         }
     }
