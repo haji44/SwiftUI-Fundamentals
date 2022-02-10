@@ -19,14 +19,10 @@ struct AppetizerListCell: View {
 //                .cornerRadius(8)                // radius set after the frame setting
             AsyncImage(url: URL(string: appetizer.imageURL)) { image in
                 image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 90)
+                    .imageIconModifier()
             } placeholder: {
                 Image("food-placeholder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 90)
+                    .imageIconModifier()
             }
 
             

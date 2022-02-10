@@ -18,3 +18,13 @@ struct StandardButtonStyle: ViewModifier {
     }
     
 }
+
+// resizable doen't exist other view so you should create extention instead
+extension Image {
+    func imageIconModifier() -> some View {
+            self
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 120, height: 90)
+        }
+}
