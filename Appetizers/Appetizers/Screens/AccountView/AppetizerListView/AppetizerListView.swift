@@ -22,12 +22,15 @@ struct AppetizerListView: View {
             NavigationView {
                 List(viewModel.appetizers, rowContent: { appetizer in
                     AppetizerListCell(appetizer: appetizer)
+//                        .listRowSeparator(.hidden)
+//                        .listRowSeparatorTint(.brandPrimary)
                         .onTapGesture { // when the user tapped ...
                             viewModel.selectedAppetizer = appetizer
                             viewModel.isShowingDetail = true
                         }
                 })
                     .navigationTitle("🍔Appetizers")
+                    .listStyle(.plain)
                     .disabled(viewModel.isShowingDetail) // when detail view is on the list, the screen interaction shut out
             }
             // this line plays a role which is smilar to viewDidLoad

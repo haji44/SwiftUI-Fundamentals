@@ -22,6 +22,7 @@
 		207F1B5427B4147000ED10B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F1B5327B4147000ED10B1 /* User.swift */; };
 		207F1B5927B4212700ED10B1 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F1B5827B4212700ED10B1 /* EmptyState.swift */; };
 		207F1B5B27B424F300ED10B1 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F1B5A27B424F300ED10B1 /* Order.swift */; };
+		207F1B5D27B4390400ED10B1 /* CustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F1B5C27B4390400ED10B1 /* CustomModifier.swift */; };
 		208A7D8F27B01CC2005E8B84 /* AppetizersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A7D8E27B01CC2005E8B84 /* AppetizersApp.swift */; };
 		208A7D9127B01CC2005E8B84 /* AppetizerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A7D9027B01CC2005E8B84 /* AppetizerTabView.swift */; };
 		208A7D9327B01CC3005E8B84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208A7D9227B01CC3005E8B84 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		207F1B5327B4147000ED10B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		207F1B5827B4212700ED10B1 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		207F1B5A27B424F300ED10B1 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		207F1B5C27B4390400ED10B1 /* CustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifier.swift; sourceTree = "<group>"; };
 		208A7D8B27B01CC2005E8B84 /* Appetizers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appetizers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208A7D8E27B01CC2005E8B84 /* AppetizersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizersApp.swift; sourceTree = "<group>"; };
 		208A7D9027B01CC2005E8B84 /* AppetizerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTabView.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				207F1B4527B1795B00ED10B1 /* Image */,
 				207F1B4427B1795500ED10B1 /* Cells */,
 				207F1B4327B1794C00ED10B1 /* UIKit Components */,
+				207F1B5C27B4390400ED10B1 /* CustomModifier.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				207F1B5D27B4390400ED10B1 /* CustomModifier.swift in Sources */,
 				208A7DA327B0277D005E8B84 /* Appetizer.swift in Sources */,
 				207F1B2E27B14AA700ED10B1 /* APError.swift in Sources */,
 				207F1B4C27B2CFA000ED10B1 /* XDismissButton.swift in Sources */,
