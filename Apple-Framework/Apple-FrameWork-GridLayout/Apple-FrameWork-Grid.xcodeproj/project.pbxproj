@@ -17,6 +17,7 @@
 		206F52EB27AF816800304411 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206F52EA27AF816800304411 /* SafariView.swift */; };
 		20C2059727AF714A00380D66 /* AFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C2059627AF714A00380D66 /* AFButton.swift */; };
 		20C2059927AF769300380D66 /* FrameworkGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C2059827AF769300380D66 /* FrameworkGridViewModel.swift */; };
+		20ECAEEC27B5359B002F9AE0 /* FrameworkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ECAEEB27B5359B002F9AE0 /* FrameworkDetailViewModel.swift */; };
 		20EE39C827AE736A004A6022 /* FrameworkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE39C727AE736A004A6022 /* FrameworkDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		206F52EA27AF816800304411 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		20C2059627AF714A00380D66 /* AFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFButton.swift; sourceTree = "<group>"; };
 		20C2059827AF769300380D66 /* FrameworkGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGridViewModel.swift; sourceTree = "<group>"; };
+		20ECAEEB27B5359B002F9AE0 /* FrameworkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailViewModel.swift; sourceTree = "<group>"; };
 		20EE39C727AE736A004A6022 /* FrameworkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				20EE39C727AE736A004A6022 /* FrameworkDetailView.swift */,
+				20ECAEEB27B5359B002F9AE0 /* FrameworkDetailViewModel.swift */,
 			);
 			path = FrameworkDetailView;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20ECAEEC27B5359B002F9AE0 /* FrameworkDetailViewModel.swift in Sources */,
 				20EE39C827AE736A004A6022 /* FrameworkDetailView.swift in Sources */,
 				2029D3F627AE2F050079141D /* FrameworkGridView.swift in Sources */,
 				203AC88927AFB0E400A98A12 /* XDismissButton.swift in Sources */,
