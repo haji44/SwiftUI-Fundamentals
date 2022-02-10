@@ -13,10 +13,23 @@ struct AppetizerListCell: View {
     
     var body: some View {
         HStack {
-            AppetizerRemoteImage(urlString: appetizer.imageURL)
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 120, height: 90)  // to cutting corner size should be over the rimb
-                .cornerRadius(8)                // radius set after the frame setting
+//            AppetizerRemoteImage(urlString: appetizer.imageURL)
+//                .aspectRatio(contentMode: .fit)
+//                .frame(width: 120, height: 90)  // to cutting corner size should be over the rimb
+//                .cornerRadius(8)                // radius set after the frame setting
+            AsyncImage(url: URL(string: appetizer.imageURL)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 90)
+            } placeholder: {
+                Image("food-placeholder")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 90)
+            }
+
+            
             VStack (alignment: .leading, spacing: 6) {
                 Text(appetizer.name)
                     .font(.title2)
