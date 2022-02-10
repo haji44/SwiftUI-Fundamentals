@@ -10,15 +10,31 @@ import SwiftUI
 struct AccountView: View {
     
     @StateObject var viewModel = AccountViewModel()
+    @FocusState private var focusedTextField: FromTextField? // suggest the filed required to input for a user
 
+    // this enum case represents field of view
+    enum FromTextField {
+    case firstNmae, lastName, email
+    }
+    
     var body: some View {
         NavigationView {
             Form {
                 // MARK: Person Info
                 Section(header: Text("Person Info")) {
                     TextField("First Name", text: $viewModel.user.firstName)
+                        .focused($focusedTextField, equals: .firstNmae)
+                        .onSubmit { focusedTextField = .lastName } // set next field
+                        .submitLabel(.next) // cofigure the keyboard button text
+                    
                     TextField("Last Name", text: $viewModel.user.lastName)
+                        .focused($focusedTextField, equals: .lastName)
+                        .onSubmit { focusedTextField = .lastName }
+                        .submitLabel(.next) // cofigure the keyboard button text
+                    
                     TextField("Email Name", text: $viewModel.user.email)
+                        .focused($focusedTextField, equals: .email)
+                        .onSubmit { focusedTextField = nil } // dismiss keybord
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -37,6 +53,12 @@ struct AccountView: View {
                 .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
             }
             .navigationTitle("Account")
+            // tool bar used as custome button and appear on top of the keyboard 
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Button("Dismiss") { focusedTextField = nil }
+                }
+            }
         }
         .onAppear {
             viewModel.retrieveUser()
