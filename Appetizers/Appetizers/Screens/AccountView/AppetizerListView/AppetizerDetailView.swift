@@ -31,9 +31,9 @@ struct AppetizerDetailView: View {
                     .padding()
                 
                 HStack(spacing: 40) {
-                    NutritionInfo(title: "Calories", value: appetizer.calories)
-                    NutritionInfo(title: "Carbs", value: appetizer.carbs)
-                    NutritionInfo(title: "Protein", value: appetizer.protein)
+                    NutritionInfo(title: "Calories", value: "\(appetizer.calories) cal")
+                    NutritionInfo(title: "Carbs", value: "\(appetizer.carbs) g")
+                    NutritionInfo(title: "Protein", value: "\(appetizer.protein) g")
                 }
             }
             
@@ -69,7 +69,7 @@ struct AppetizerDetailView_Previews: PreviewProvider {
 struct NutritionInfo: View {
     
     let title: String
-    let value: Int
+    let value: String
     
     var body: some View {
         // Spacing is indicator of space between every child
@@ -77,7 +77,7 @@ struct NutritionInfo: View {
             Text(title)
                 .bold()
                 .font(.caption)
-            Text("\(value)")
+            Text(value)
                 .foregroundColor(.secondary)
                 .fontWeight(.semibold)
                 .italic()

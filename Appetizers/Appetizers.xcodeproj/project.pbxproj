@@ -32,6 +32,7 @@
 		208A7DA127B0212A005E8B84 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A7DA027B0212A005E8B84 /* OrderView.swift */; };
 		208A7DA327B0277D005E8B84 /* Appetizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A7DA227B0277D005E8B84 /* Appetizer.swift */; };
 		208A7DA527B02B43005E8B84 /* AppetizerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208A7DA427B02B43005E8B84 /* AppetizerListCell.swift */; };
+		20D3838D27B5402500A50209 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3838C27B5402500A50209 /* Date+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		208A7DA027B0212A005E8B84 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		208A7DA227B0277D005E8B84 /* Appetizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appetizer.swift; sourceTree = "<group>"; };
 		208A7DA427B02B43005E8B84 /* AppetizerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListCell.swift; sourceTree = "<group>"; };
+		20D3838C27B5402500A50209 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				207F1B3527B1654500ED10B1 /* Color+Ext.swift */,
+				20D3838C27B5402500A50209 /* Date+Ext.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				207F1B5D27B4390400ED10B1 /* CustomModifier.swift in Sources */,
 				208A7DA327B0277D005E8B84 /* Appetizer.swift in Sources */,
 				207F1B2E27B14AA700ED10B1 /* APError.swift in Sources */,
+				20D3838D27B5402500A50209 /* Date+Ext.swift in Sources */,
 				207F1B4C27B2CFA000ED10B1 /* XDismissButton.swift in Sources */,
 				208A7D9D27B02110005E8B84 /* AccountView.swift in Sources */,
 				207F1B4F27B40BC700ED10B1 /* AccountViewModel.swift in Sources */,
