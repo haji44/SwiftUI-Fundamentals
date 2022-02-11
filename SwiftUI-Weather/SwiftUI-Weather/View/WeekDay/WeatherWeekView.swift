@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct WeatherWeekView: View {
-    var dayOfWeek: String
-    var imageName: String
-    var temperature: Int
+    
+    var weather: Datum
     
     var body: some View {
         VStack {
-            Text(dayOfWeek)
-            Image(systemName: imageName)
+            Text(weather.datetime.toMonthAndDays())
+                .font(.system(size: 20, weight: .medium))
+                .foregroundColor(.white)
+            Text(weather.datetime.toDaysOfWeek())
+                .font(.system(size: 20, weight: .medium))
+                .foregroundColor(.white)
+            Image(systemName: SFSymbol.getSFSymbolString(weather.weather.code))
                 .symbolRenderingMode(.multicolor)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
-            Text("\(temperature)°")
+            Text("\(weather.tempearture)°")
                 .font(.system(size: 28, weight: .medium))
                 .foregroundColor(.white)
         }
@@ -29,8 +33,6 @@ struct WeatherWeekView: View {
 
 struct WeatherWeekView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherWeekView(dayOfWeek: MockData.smapleDatum.datetime.toDaysOfWeek(),
-                        imageName: SFSymbol.getSFSymbolString(300),
-                        temperature: Int(MockData.smapleDatum.temp))
+        WeatherWeekView(weather: MockData.smapleDatum)
     }
 }

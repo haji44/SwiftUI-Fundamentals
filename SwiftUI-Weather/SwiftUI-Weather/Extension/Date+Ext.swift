@@ -15,4 +15,10 @@ extension Date {
         return dateformatter.string(from: self)
     }
     
+    // Example : 12/01
+    func convertToMonthDate() -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "M/dd"
+        return dateformatter.string(from: self)
+    }
 }

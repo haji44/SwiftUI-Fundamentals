@@ -106,8 +106,8 @@
 		204FF66A27A6CAAB00DF680A /* SwiftUI-Weather */ = {
 			isa = PBXGroup;
 			children = (
-				20443AB527B5558A00DF5103 /* Screens */,
 				204FF66B27A6CAAB00DF680A /* SwiftUI_WeatherApp.swift */,
+				20443AB527B5558A00DF5103 /* Screens */,
 				205C645627AC4BF9004AFF95 /* Extension */,
 				204FF68027AAD00D00DF680A /* Utility */,
 				204FF67A27AAC3AB00DF680A /* View */,

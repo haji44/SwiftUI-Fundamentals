@@ -15,22 +15,23 @@ struct WeatherView: View {
         ZStack {
             WEBackGround()
             
-            VStack {
-                CityTextView(cityName: viewModel.cityName)
-                WeatherMainView(temperature: Int(viewModel.mainWeather?.temp ?? 0), imageName: SFSymbol.getSFSymbolString(viewModel.mainWeather?.weather.code ?? 200))
-                
-                    .padding(.bottom, 40)
-                HStack(spacing: 20) {
-                    ForEach(viewModel.weekWeather) { weekWeather in
-                        WeatherWeekView(dayOfWeek: weekWeather.datetime.toDaysOfWeek(), imageName: SFSymbol.getSFSymbolString(weekWeather.weather.code), temperature: Int(weekWeather.temp))
-                    }
-                }
-            }
-            Spacer()
-            
-            Spacer()
             if viewModel.isLoadingView {
                 LoadingView()
+            } else {
+                VStack {
+                    CityTextView(cityName: viewModel.cityName)
+                    WeatherMainView(weather: viewModel.mainWeather ?? MockData.smapleDatum)
+                        .padding(.bottom, 20)
+
+                    ScrollView(.horizontal) {
+                        HStack(alignment: .center, spacing: 20) {
+                            ForEach(viewModel.weekWeather) { weekWeather in
+                                WeatherWeekView(weather: weekWeather)
+                            }
+                        }
+                    }
+                    .padding(30)
+                }
             }
         }
         .onAppear {
