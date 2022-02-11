@@ -11,7 +11,7 @@ class NetWorkManager {
     
     // MARK: Property
     static let shared   = NetWorkManager()
-    let baseUrl         = "https://api.weatherbit.io/v2.0/forecast/daily?key=ff3eda142949492cbeca9379e032683c&days=6&city="
+    let baseUrl         = "https://api.weatherbit.io/v2.0/forecast/daily?key=ff3eda142949492cbeca9379e032683c&city="
     let decoder         = JSONDecoder()
 
     

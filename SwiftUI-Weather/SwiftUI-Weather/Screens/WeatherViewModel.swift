@@ -12,8 +12,7 @@ import SwiftUI
     @Published var mainWeather: Datum?
     @Published var weekWeather: [Datum] = []
     @Published var cityName: String = "Tokyo"
-    @Published var isLoadingView = false
-    
+    @Published var isLoadingView = false    
     
     // MARK: retrieve data from api
     func getWeatherData() {
@@ -22,7 +21,7 @@ import SwiftUI
             do {
                 let weather = try await NetWorkManager.shared.getWeatherData(by: "Tokyo")
                 mainWeather = weather.data[0]
-                weekWeather = Array(weather.data[1...5])
+                weekWeather = Array(weather.data[1...])
                 isLoadingView = false
             } catch {
                 if let error = error as? WeatherError {

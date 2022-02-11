@@ -11,10 +11,9 @@ extension String {
 
     func toDate() -> Date? {
         let dateFormmater = DateFormatter()
-        dateFormmater.dateFormat = "YYYY-MM-DD"
+        dateFormmater.dateFormat = "yyyy-MM-dd"
         dateFormmater.locale = Locale(identifier: "ja_JP")
         dateFormmater.timeZone = .current
-        
         return dateFormmater.date(from: self)
     }
     
@@ -23,4 +22,8 @@ extension String {
         return date.convertToDayOfTheWeek()
     }
     
+    func toMonthAndDays() -> String {
+        guard let date = self.toDate() else { return "N/A" }
+        return date.convertToMonthDate()
+    }
 }
